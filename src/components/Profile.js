@@ -14,7 +14,7 @@ export class Profile extends React.Component {
     const user = this.props.user
     return (
       <div>
-        {user.bio}
+        
         <div className="page-header">
           <div className="content-container">
             <h1 className="page-header__title"></h1>
@@ -26,6 +26,8 @@ export class Profile extends React.Component {
           <ProfileForm
             onSubmit={this.onSubmit}
           />
+          <p>{user.name}</p>
+          <p>{user.bio}</p>
         </div>
       </div>
     );

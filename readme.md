@@ -1,3 +1,3 @@
-react-redux blog
+react-redux private blog
 
 wow
