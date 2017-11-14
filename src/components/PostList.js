@@ -12,11 +12,11 @@ export const PostList = (props) => (
       {props.posts.map((post) => {
         return (
           <Link className="list-item" key={post.id} to={`/posts/${post.id}`} {...post}>
-              <p className="list-item__title">
-                {post.name}
-              </p>
+              <h3 className="list-item__title">
+                {post.title}
+              </h3>
               <p className="list-item__data">
-                {post.data.substring(0, 128)}...
+                {post.data.substring(0, 512)}...
             </p>
           </Link>
         )

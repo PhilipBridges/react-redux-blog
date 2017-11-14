@@ -5,23 +5,23 @@ export class AddPostForm extends Component {
     super(props);
 
     this.state = {
-      name: '',
+      title: '',
       data: ''
     }
   }
   onSubmit = (e) => {
     e.preventDefault()
-    const name = this.state.name
+    const title = this.state.title
     const data = this.state.data
 
     this.props.onSubmit({
-      name,
+      title,
       data
     })
   }
-  onNameChange = (e) => {
-    const name = e.target.value
-    this.setState(() => ({name}))
+  onTitleChange = (e) => {
+    const title = e.target.value
+    this.setState(() => ({title}))
   }
   onDataChange = (e) => {
     const data = e.target.value
@@ -30,10 +30,9 @@ export class AddPostForm extends Component {
     render(){
       return (
         <div>
-          <p>{this.state.name}, {this.state.data}</p>
-          <form onSubmit={this.onSubmit}>
-            <input onChange={this.onNameChange} value={this.state.name} placeholder="name" type="text"/>
-            <input onChange={this.onDataChange} value={this.state.data} placeholder="data" type="text"/>
+          <form className="form" onSubmit={this.onSubmit}>
+            <input className="text-input" onChange={this.onTitleChange} value={this.state.title} placeholder="title" type="text"/>
+            <textarea className="textarea" onChange={this.onDataChange} value={this.state.data} placeholder="data"></textarea>
             <button>Submit</button>
           </form>
         </div>

@@ -9,6 +9,7 @@ export default (state = expensesReducerDefaultState, action) => {
       ]
       case 'SET_POSTS':
         return action.posts
+        
     default:
       return state;
   }
