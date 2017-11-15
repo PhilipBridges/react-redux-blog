@@ -19,7 +19,7 @@ export class Header extends Component {
             <Link className="button button--link" to="/profile">
               Profile ({this.props.user.name})
        </Link>
-            <button className="button button--link" onClick={startLogout}>Logout</button>
+            <button className="button button--link" onClick={this.props.startLogout}>Logout</button>
           </div>
         </div>
       </header>
