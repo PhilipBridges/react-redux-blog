@@ -1,6 +1,6 @@
-const expensesReducerDefaultState = [];
+const postsReducerDefaultState = [];
 
-export default (state = expensesReducerDefaultState, action) => {
+export default (state = postsReducerDefaultState, action) => {
   switch (action.type) {
     case 'ADD_POST':
       return [
@@ -9,7 +9,6 @@ export default (state = expensesReducerDefaultState, action) => {
       ]
       case 'SET_POSTS':
         return action.posts
-        
     default:
       return state;
   }

@@ -6,7 +6,7 @@ import { fireAddPost } from '../actions/posts';
 export class AddPostPage extends React.Component {
   onSubmit = (post) => {
     this.props.fireAddPost(post);
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
   render() {
     return (

@@ -28,17 +28,13 @@ const renderApp = () => {
   }
 };
 
-store.subscribe = () => {
-  console.log(store.getState())
-}
-
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));
-    store.dispatch(fireGetPosts())
-    store.dispatch(fireGetInfo()).then(() => {
+    store.dispatch(fireGetInfo())
+    store.dispatch(fireGetPosts()).then(() => {
       renderApp();
     })
     if (history.location.pathname === '/') {
