@@ -9,9 +9,7 @@ export const PublicRoute = ({
   ...rest
 }) => (
     <Route {...rest} component={(props) => (
-    
           <div>
-            <Header />
             <Component {...props} />
           </div>
     )} />

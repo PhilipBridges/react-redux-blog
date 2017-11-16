@@ -2,7 +2,7 @@ import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 // Posts
-export const getPosts = (posts) => ({
+export const getPosts = (posts = []) => ({
   type: 'SET_POSTS',
   posts
 })
