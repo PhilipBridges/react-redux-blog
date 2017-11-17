@@ -16,23 +16,18 @@ export class PostList extends Component {
   }
   render() {
     return (
-      <div className="content-container">
-        <div className="list-header">
-          Posts
-        </div>
-        <div className="list-body">
+      <div className="list-body">
           {this.props.posts.map((post) => (
             <Link className="list-item" key={post.id} to={`/posts/${post.id}`} {...post}>
               <h3 className="list-item__title">
                 {post.title}
               </h3>
               <p className="list-item__data">
-                {post.data.substring(0, 512)}...
+                {post.author} @ {post.date}
               </p>
             </Link>
           )
           )}
-        </div>
       </div>
     )
   }

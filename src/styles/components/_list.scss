@@ -9,9 +9,7 @@
 
 .list-body {
   margin-bottom: $m-size;
-  @media (min-width: $desktop-breakpoint) {
-    margin-bottom: $l-size;
-  }
+  justify-content: left;
 }
 
 .list-item {
@@ -20,7 +18,6 @@
   color: $dark-grey;
   display: flex;
   flex-direction: column;
-  padding: $s-size;
   text-decoration: none;
   transition: background .3s ease;
   &:hover {

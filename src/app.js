@@ -11,6 +11,7 @@ import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 import { fireGetPosts } from './actions/posts';
 import { fireGetInfo } from './actions/profile'
+import { fireGetSeens } from './actions/seens'
 import database from './firebase/firebase';
 
 
@@ -28,20 +29,27 @@ const renderApp = () => {
   }
 };
 
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));
     store.dispatch(fireGetPosts())
+    store.dispatch(fireGetSeens())
     store.dispatch(fireGetInfo()).then(() => {
       renderApp();
     })
-    if (history.location.pathname === '/') {
-      history.push('/dashboard');
+    if (history.location.pathname === '/login' || '/create') {
+      history.push('/');
     }
   } else {
-    store.dispatch(logout());
+    store.dispatch(logout())
+    store.dispatch(fireGetPosts())
+    store.dispatch(fireGetInfo())
     renderApp();
     history.push('/');
   }

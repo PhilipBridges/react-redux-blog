@@ -10,7 +10,7 @@ export const getPosts = (posts = []) => ({
 export const fireGetPosts = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    return database.ref(`users/${uid}/posts`)
+    return database.ref(`/posts`)
       .once('value')
       .then((snapshot) => {
         const posts = []
@@ -36,10 +36,12 @@ export const fireAddPost = (postData = {}) => {
     const uid = getState().auth.uid;
     const {
       title = '',
-      data = ''
+      body = '',
+      author = '',
+      date = 0
     } = postData;
-    const post = { title, data }
-    database.ref(`users/${uid}/posts`).push(post).then((ref) => {
+    const post = { title, body, author, date }
+    database.ref(`/posts`).push(post).then((ref) => {
       dispatch(addPost({
         id: ref.key,
         ...post

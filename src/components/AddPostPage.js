@@ -6,8 +6,10 @@ import { fireAddPost } from '../actions/posts';
 export class AddPostPage extends React.Component {
   onSubmit = (post) => {
     this.props.fireAddPost(post);
-    this.props.history.push('/dashboard');
+    this.props.history.push('/');
   };
+  user = this.props.user
+  isAuthed = this.props.isAuthed
   render() {
     return (
       <div>
@@ -19,6 +21,8 @@ export class AddPostPage extends React.Component {
         <div className="content-container">
           <AddPostForm
             onSubmit={this.onSubmit}
+            user={this.user}
+            isAuthed={this.isAuthed}
           />
         </div>
       </div>
@@ -26,8 +30,13 @@ export class AddPostPage extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  user: state.profile,
+  isAuthed: state.auth.uid && state.auth.uid.length > 1
+});
+
 const mapDispatchToProps = (dispatch) => ({
   fireAddPost: (post) => dispatch(fireAddPost(post))
 });
 
-export default connect(undefined, mapDispatchToProps)(AddPostPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AddPostPage);

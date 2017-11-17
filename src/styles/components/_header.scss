@@ -1,18 +1,17 @@
 .header {
-  background: $dark-blue;
+  background: $header;
 }
 
 .header__content {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: $s-size 0;
+  padding: $m-size 0;
+  height: 1.2rem;
 }
 
-.header__title {
+.header__title {  
   color: white;
   text-decoration: none;
-  h1 {
-    margin: 0;
-  }
+  justify-content: left;
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 export class Post extends Component {
   render() {
-    const { title, data } = this.props.post
+    const { title, body } = this.props.post
     return (
       <div className="content-container">
         <div className="list-header">
@@ -14,7 +14,7 @@ export class Post extends Component {
               {title}
             </h3>
             <p className="list-item__data">
-              {data}
+              {body}
             </p>
           </div>
         </div>
