@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 export class Post extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      post: this.props.post
+    }
+  }
   render() {
-    const { title, body } = this.props.post
     return (
       <div className="content-container">
         <div className="list-header">
@@ -11,10 +16,8 @@ export class Post extends Component {
         <div className="list-body">
           <div>
             <h3 className="list-item__title">
-              {title}
             </h3>
             <p className="list-item__data">
-              {body}
             </p>
           </div>
         </div>
@@ -24,7 +27,6 @@ export class Post extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  post: state.posts.find((post) => post.id === props.match.params.id)
 })
 
 export default connect(mapStateToProps)(Post);

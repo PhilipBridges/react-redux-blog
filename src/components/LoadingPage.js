@@ -1,9 +1,13 @@
 import React from 'react';
+import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const LoadingPage = () => (
-  <div className="loader">
-    <img className="loader__image" src="/images/loader.gif" />
-  </div>
+  <MuiThemeProvider>
+    <div className="loader">
+      <CircularProgress size={80}/>
+    </div>
+  </MuiThemeProvider>
 );
 
 export default LoadingPage;

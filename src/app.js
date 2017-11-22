@@ -14,12 +14,11 @@ import { fireGetInfo } from './actions/profile'
 import { fireGetSeens } from './actions/seens'
 import database from './firebase/firebase';
 
-
 const store = configureStore();
 const jsx = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
 );
 let hasRendered = false;
 const renderApp = () => {
@@ -29,9 +28,9 @@ const renderApp = () => {
   }
 };
 
-store.subscribe(() => {
-  console.log(store.getState())
-})
+// store.subscribe(() => {
+//   console.log(store.getState())
+// })
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 

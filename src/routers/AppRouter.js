@@ -13,6 +13,7 @@ import Header from '../components/Header';
 import Seens from '../components/Seens';
 import SeensList from '../components/SeensList';
 import AddSeenPage from '../components/AddSeenPage';
+import Seen from '../components/Seen';
 
 export const history = createHistory();
 
@@ -20,14 +21,16 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Header />
+      <Seens />
       <Switch>
       <Route path="/" component={DashboardPage} exact={true}/>
         <Route path="/login" component={LoginPage} />
-        <Route path="/create" component={AddPostPage} />
-        <Route path="/posts/:id" component={Post} />
+        <Route path="/s/:title/create" component={AddPostPage} />
+        <Route path="/s/posts/:title" component={Post} />
+        <Route path="/s/:title" component={Seen} exact={true}/>
         <Route path="/seens" component={Seens} exact={true}/>
-        <Route path="/seens/:id" component={Seens}/>
         <PrivateRoute path="/seens/create" component={AddSeenPage} />
+        <Route path="/seens/:seen" component={Seens} exact={true}/>
         <PrivateRoute path="/profile" component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>

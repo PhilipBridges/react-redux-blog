@@ -10,6 +10,7 @@ export class AddPostPage extends React.Component {
   };
   user = this.props.user
   isAuthed = this.props.isAuthed
+  seen = this.props.seen
   render() {
     return (
       <div>
@@ -23,6 +24,7 @@ export class AddPostPage extends React.Component {
             onSubmit={this.onSubmit}
             user={this.user}
             isAuthed={this.isAuthed}
+            seen={this.seen}
           />
         </div>
       </div>
@@ -30,9 +32,10 @@ export class AddPostPage extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
   user: state.profile,
-  isAuthed: state.auth.uid && state.auth.uid.length > 1
+  isAuthed: state.auth.uid && state.auth.uid.length > 1,
+  seen: state.seens.find((seen) => seen.title === props.match.params.title)
 });
 
 const mapDispatchToProps = (dispatch) => ({

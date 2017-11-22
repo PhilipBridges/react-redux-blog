@@ -6,7 +6,6 @@ import Seens from './Seens'
 const DashboardPage = () => (
   <div>
     <PostList />
-    <Seens />
   </div>
 );
 

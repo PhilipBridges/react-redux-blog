@@ -14,12 +14,10 @@ export class Header extends Component {
             <Link className="header__title" to="/">
               <h3>Seenit</h3>
             </Link>
-            <Link className="button button--link" to="/create">
-              Submit Post
-            </Link>
             <Link className="button button--link" to="/profile">
               Profile ({this.props.user.name})
             </Link>
+            <Link className="button button--link" to="/seens/create">Create Seen</Link>
             {this.props.isAuthed
               ?
               (<button className="button button--link" onClick={this.props.startLogout}>Logout</button>)
